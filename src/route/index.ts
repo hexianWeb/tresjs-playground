@@ -6,10 +6,10 @@ import TheEventManger from "../components/TheEventManger.vue";
 const routes = [
   { path: "/", component: TheExperience },
   { path: "/other", component: TheOther },
-  {
-    path: "/event",
-    component: TheEventManger,
-  },
+  // {
+  //   path: "/event",
+  //   component: TheEventManger,
+  // },
 ];
 
 const router = createRouter({

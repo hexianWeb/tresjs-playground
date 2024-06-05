@@ -9,7 +9,8 @@ import {
   shallowRef,
 } from "vue";
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
-import { OrbitControls } from "@tresjs/cientos";
+import { OrbitControls, Html } from "@tresjs/cientos";
+import TheOneChild from "./TheOneChild.vue";
 
 const state = reactive({
   clearColor: "#82DBC5",
@@ -54,12 +55,23 @@ onUnmounted(() => {
     <TresPerspectiveCamera :position="[5, 5, 5]" />
     <OrbitControls />
     <TresAmbientLight :intensity="0.5" color="red" />
-    <TresMesh ref="boxRef" :position="[0, 2, 0]">
+    <!-- <TresMesh ref="boxRef" :position="[0, 2, 0]">
       <TresBoxGeometry :args="[1, 1, 1]" />
       <TresMeshNormalMaterial />
     </TresMesh>
+    <Html><span class="cool-font">Home</span></Html> -->
+    <TheOneChild />
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="1" cast-shadow />
     <TresAxesHelper />
     <TresGridHelper :args="[10, 10, 0x444444, 'teal']" />
   </TresCanvas>
 </template>
+
+<style scoped>
+.cool-font {
+  font-family: "Courier New", monospace;
+  color: yellow;
+  font-size: 24px;
+  font-weight: bold;
+}
+</style>

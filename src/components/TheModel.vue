@@ -9,6 +9,9 @@ import {
   watch,
 } from "vue";
 
+import { useTresContext } from "@tresjs/core";
+
+const { scene } = useTresContext();
 const { scene: model } = await useGLTF(
   "https://raw.githubusercontent.com/Tresjs/assets/main/models/gltf/aku-aku/AkuAku.gltf",
   {
@@ -18,32 +21,31 @@ const { scene: model } = await useGLTF(
 
 const akuAkuRef = ref(null);
 
-watch(akuAkuRef, (model) => {
-  // eslint-disable-next-line no-console
-  console.log("akuAkuRef", model);
-});
-
 onBeforeMount(() => {
-  console.log("the Model onBeforeMount");
+  console.log("the Second Child onBeforeMount");
 });
 
 onMounted(() => {
-  console.log("the Model onMounted");
+  console.log(scene.value.children);
+
+  console.log("the Second Child onMounted");
 });
 
 onBeforeUnmount(() => {
-  console.warn("the Model onBeforeUnmount");
+  console.log("the Second Child onBeforeUnmount");
 });
 
 onUnmounted(() => {
-  console.warn("the Model onUnmounted");
+  console.log("the Second Child onUnmounted");
 });
 </script>
 
 <template>
-  <TresGroup :position="[0, 2, 0]">
-    <Html :position="[0, 2, 0]"> <p class="cool-font">Tresjs is Best!</p></Html>
-    <primitive ref="akuAkuRef" :object="model" />
+  <TresGroup :position="[0, 0, 0]" name="model">
+    <Html :position="[0, 2, 0]">
+      <p class="cool-font">The Second Child</p></Html
+    >
+    <primitive ref="akuAkuRef" :object="model"> </primitive>
   </TresGroup>
 </template>
 

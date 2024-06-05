@@ -33,19 +33,19 @@ onLoop(({ elapsed }) => {
 
 // 输出所有生命周期
 onBeforeMount(() => {
-  console.log("the Other onBeforeMount");
+  console.log("the Second onBeforeMount");
 });
 
 onMounted(() => {
-  console.log("the Other onMounted");
+  console.log("the Second onMounted");
 });
 
 onBeforeUnmount(() => {
-  console.warn("the Other onBeforeUnmount");
+  console.warn("the Second onBeforeUnmount");
 });
 
 onUnmounted(() => {
-  console.warn("the Other onUnmounted");
+  console.warn("the Second onUnmounted");
 });
 </script>
 
@@ -54,16 +54,11 @@ onUnmounted(() => {
     <TresPerspectiveCamera :position="[5, 10, 5]" />
     <OrbitControls />
     <TresAmbientLight :intensity="0.5" color="red" />
-    <TresMesh ref="sphereRef" :position="[0, 2, 0]">
-      <TresSphereGeometry :args="[1, 1]" />
-      <TresMeshNormalMaterial />
-    </TresMesh>
+
     <Suspense>
       <TheModel />
     </Suspense>
-    <Html>
-      <p class="cool-font">Hello, Tres!</p>
-    </Html>
+
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="1" cast-shadow />
     <TresAxesHelper />
     <TresGridHelper :args="[10, 10, 0x444444, 'teal']" />
