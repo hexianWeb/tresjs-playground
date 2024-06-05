@@ -10,7 +10,7 @@ import {
 } from "vue";
 import { BasicShadowMap, NoToneMapping, SRGBColorSpace } from "three";
 import { OrbitControls } from "@tresjs/cientos";
-
+import TheOneChild from "./TheOneChild.vue";
 const state = reactive({
   clearColor: "#82DBC5",
   shadows: true,
@@ -58,6 +58,7 @@ onUnmounted(() => {
       <TresBoxGeometry :args="[1, 1, 1]" />
       <TresMeshNormalMaterial />
     </TresMesh>
+    <TheOneChild />
     <TresDirectionalLight :position="[0, 2, 4]" :intensity="1" cast-shadow />
     <TresAxesHelper />
     <TresGridHelper :args="[10, 10, 0x444444, 'teal']" />

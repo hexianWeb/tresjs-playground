@@ -11,6 +11,9 @@ import TheExperience from "./components/TheExperience.vue";
     <button>
       <RouterLink to="/other">Go to other</RouterLink>
     </button>
+    <button>
+      <RouterLink to="/event">show Event BUG</RouterLink>
+    </button>
   </nav>
   <router-view></router-view>
 </template>
